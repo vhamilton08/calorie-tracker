@@ -6,11 +6,70 @@
   font-family: 'Fira Sans', sans-serif;
 }
 
-main {
-  padding: 32px;
+nav {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* height: 5vh; */
+  text-decoration: none;
+}
+nav li a {
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.foodDetails {
+  /* margin-top: 20px; */
+  display: flex;
+  /* justify-content: center; */
   flex-direction: column;
   align-items: center;
+  height: 95vh;
+}
+
+.add {
+  /* height: 100vh; */
+  /* margin: 75% 10%; */
+  /* margin-top: 70vh; */
+  /* margin-right: 30px; */
+  /* position: absolute; */
+  /* top: 95%; */
+  /* padding: 32px; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: flex-end;
   justify-content: center;
-  min-height: 100vh;
+  /* padding: 50px; */
+  /* align-content: space-between; */
+  /* min-height: 70vh; */
+  /* background-color: blue; */
+  float: right;
+  
+
+  /* height: 40vh; */
+}
+
+.addFoodBtn {
+  background-color: black;
+  color: white;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 40px;
+  border: 1px solid black;
+  /* width: 300px; */
+  margin-top: 65vh;
+  margin-left: 80% ;
+}
+.closeBtn {
+  background-color: black;
+  color: white;
+  margin-left: 5px;
+  padding: 3px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 15%;
+  /* height: 20px; */
 }
