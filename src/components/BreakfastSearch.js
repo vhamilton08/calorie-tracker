@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import './BreakfastSearch.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import AddBreakfast from './AddBreakfast'
 // import AddFood from './AddFood'
 
 const BreakfastSearch = (props) => {
     const [food, setFood] = useState([])
+    const [clickedFood, setCLickedFood] = useState([])
     // const [addButtonPopup, setaddButtonPopup] = useState(false)
 
     const params = {
@@ -21,14 +23,15 @@ const BreakfastSearch = (props) => {
         console.log(food)
     }
     
-    const mappedFood = food.map(el => {
-        return el.description
-    })
-    console.log(mappedFood)
-    const skerpde = () => {
-        props.setTrigger2(true)
-        props.setTrigger(false)
-    }
+    // const mappedFood = food.map(el => {
+    //     return el.description
+    // })
+    // console.log(mappedFood)
+    // const skerpde = () => {
+    //     props.setTrigger2(true)
+    //     props.setTrigger(false)
+    // }
+
     console.log(food)
     return ((props.trigger) ? (
         <div className="popup">
@@ -44,10 +47,13 @@ const BreakfastSearch = (props) => {
             <button onClick={getFood}>search</button>
             <div className="displayedFood">
             <ul>
-                {food.map(foods => <li><button onClick={skerpde}>{foods.description}</button></li>)}
+                {food.map(foods => <Link to='breakfastadd' onClick={() => setCLickedFood(foods.description)}><li><button>{foods.description}</button></li></Link>)}
                 {/* onClick={() => props.setTrigger(true)} */}
             </ul>
             {/* <AddFood trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/> */}
+            </div>
+            <div className="dontDisplay">
+                <AddBreakfast clickedFood={clickedFood}/>
             </div>
             </div>
         </div>

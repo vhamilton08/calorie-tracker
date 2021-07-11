@@ -1,7 +1,7 @@
 import React from 'react'
 import './AddFood.css'
 import { connect } from 'react-redux'
-import breakfastReducer, { addBreakfast } from '../redux/breakfastReducer'
+import { addBreakfast } from '../redux/breakfastReducer'
 
 const AddFood = (props) => {
 

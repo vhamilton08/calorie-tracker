@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BreakfastSearch from './BreakfastSearch';
-import AddFood from './AddFood';
 
 const Breakfast = () => {
     const [buttonPopup, setbuttonPopup] = useState(false)
@@ -35,7 +34,7 @@ const Breakfast = () => {
                 <BreakfastSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}>
                     {/* <h3>hello</h3> */}
                 </BreakfastSearch>
-                <AddFood trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
+                {/* <AddFood trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/> */}
 
             </div>
     )   

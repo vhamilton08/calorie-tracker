@@ -38,6 +38,11 @@ CREATE TABLE snacks (
     weight INTEGER
 );
 
+CREATE TABLE totalCals (
+    id SERIAL PRIMARY KEY,
+    calories INTEGER
+);
+
 -- CREATE TABLE daily (
 --     daily_id SERIAL PRIMARY KEY,
 --     name VARCHAR(250),

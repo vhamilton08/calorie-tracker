@@ -1,0 +1,1 @@
+SELECT calories FROM totalCals;

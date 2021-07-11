@@ -14,7 +14,7 @@ export default (
         <Route path='/lunch' component={Lunch}/>
         <Route path='/dinner' component={Dinner}/>
         <Route path='/snacks' component={Snacks}/>
-        <Route path='/breakfast/add' component={AddBreakfast}/>
+        <Route path='/breakfastadd' component={AddBreakfast}/>
 
     </Switch>
 

@@ -15,12 +15,17 @@ massive({
     console.log('Db is online')
 }).catch(err => console.log(`Database error: ${err}`))
 
+//totalCals endpoints
+app.get('/api/dailybudget', ctrl.getDailyBudget)
+app.put('/api/dailybudget', ctrl.updateBudget)
+
 // breakfast endpoints
 app.get('/api/breakfast', ctrl.getBreakfast)
 app.post('/api/breakfast', ctrl.addToBreakfast)
 // app.delete('/api/breakfast', ctrl.deleteFromBreakfast)
 
-//lunch endpoinds
+//lunch endpoints
 app.get('/api/lunch', ctrl.getLunch)
+
 
 app.listen(SERVER_PORT, () => console.log(`<---Server Online--->`))

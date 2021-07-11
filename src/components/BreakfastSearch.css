@@ -46,3 +46,6 @@
     color: red;
     transition: 1ms linear;
 }
+.dontDisplay {
+    display: none;
+}
