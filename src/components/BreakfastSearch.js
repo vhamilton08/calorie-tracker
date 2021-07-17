@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import './BreakfastSearch.css'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-import AddBreakfast from './AddBreakfast'
-// import AddFood from './AddFood'
+import Popup from './Popup'
 
 const BreakfastSearch = (props) => {
     const [food, setFood] = useState([])
-    const [clickedFood, setCLickedFood] = useState([])
-    // const [addButtonPopup, setaddButtonPopup] = useState(false)
+    const [clickedFood, setClickedFood] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
 
     const params = {
         api_key: 'IwqffEyeCXcGtZpcTIO8EqcVEFTE46qCEi7Vkxmd',
@@ -22,17 +20,20 @@ const BreakfastSearch = (props) => {
         .then(res => setFood(res.data.foods))
         console.log(food)
     }
-    
-    // const mappedFood = food.map(el => {
-    //     return el.description
-    // })
-    // console.log(mappedFood)
-    // const skerpde = () => {
-    //     props.setTrigger2(true)
-    //     props.setTrigger(false)
+    const togglePopup = () => {
+        setIsOpen(!isOpen)
+    }
+    // const addFood = () => {
+        // setCLickedFood(mappedFoods)
+        // setIsOpen(true)
     // }
-
-    console.log(food)
+    const mappedFoods = food.map(foods => {
+    return <button>{foods.description}</button>
+    })
+        
+    console.log(mappedFoods)
+    console.log(clickedFood)
+    console.log(clickedFood.length)
     return ((props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">
@@ -47,14 +48,21 @@ const BreakfastSearch = (props) => {
             <button onClick={getFood}>search</button>
             <div className="displayedFood">
             <ul>
-                {food.map(foods => <Link to='breakfastadd' onClick={() => setCLickedFood(foods.description)}><li><button>{foods.description}</button></li></Link>)}
-                {/* onClick={() => props.setTrigger(true)} */}
+                {/* <li onClick={addFood}><button>{mappedFoods}</button></li> */}
+                {food.map(foods => <li><button onClick={() => setClickedFood(foods.description)}>{foods.description}</button></li>)}
             </ul>
             {/* <AddFood trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/> */}
             </div>
             <div className="dontDisplay">
-                <AddBreakfast clickedFood={clickedFood}/>
+                {clickedFood.length >= 1 ? 
+                <Popup  clickedFood={clickedFood}
+                        setClickedFood={setClickedFood}
+                        setIsOpen={setIsOpen}/> : ''
+                }
             </div>
+
+              
+
             </div>
         </div>
     ) : ''

@@ -16,7 +16,7 @@ const Home = (props) => {
     const inputhandle = (e) => {
         setCalorieInput(e.target.value)
     }
-    // let skerp = calorieInput[0]
+
     const updateCalories = (e) => {
         if(e.key === 'Enter') {
             // setCalorieBudget(calorieInput)
@@ -40,12 +40,13 @@ const Home = (props) => {
         }, 0)
     console.log(`hello`, calorieInput)
     console.log(calorieBudget)
-    let mappedCalorieBudget = calorieBudget.map((el, index) => {
-        return el
+    
         // key={index}
                
-    })
-    console.log(mappedCalorieBudget)
+    // })
+    // console.log(mappedCalorieBudget)
+    let displayCalorieBudget = calorieBudget.map(el => el.calories)
+    console.log(calorieBudget)
     return (
         <div className="home">
             <div id="calorie-info">
@@ -59,16 +60,13 @@ const Home = (props) => {
             onChange={inputhandle}
             onKeyPress={updateCalories}
             type="number"
-            name/> :
-            <button onClick={() => setupdatingCalories(true)}></button>
-            
-            // <button onClick={() => setupdatingCalories(true)}>{calorieBudget}</button>
+            name="updatingCalories"/> :
+            <button onClick={() => setupdatingCalories(true)}>{displayCalorieBudget}</button>
         }
         </div>
             
                 <div>
                 <h3>Calories Consumed</h3>
-
                 <h3>Calories Left</h3>
                 {/* <h6>{calorieBudget - lunchCalories}</h6> */}
                 </div>
