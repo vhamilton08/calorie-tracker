@@ -1,17 +1,53 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { addBreakfast } from '../redux/breakfastReducer'
+import axios from 'axios'
+import React, { useState } from 'react'
+import './AddBreakfast.css'
 
 const AddBreakfast = (props) => {
-    console.log('propppppps', props.clickedFood)
-    return (
-        <div>
-<h2>placeholder</h2>
-{/* <p>{props.clickedFood}</p> */}
-        </div>
-    )
+    const [foodName, setFoodName] = useState('')
+    const [calories, setCalories] = useState('')
+    const [protein, setProtein] = useState('')
+    const [carbs, setCarbs] = useState('')
+    const [fat, setFat] = useState('')
+    const [weight, setWeight] = useState('')
+
+          const addFood = () => {
+              axios.post('api/breakfast', {name:foodName, calories: calories, protein:protein, carbs: carbs, fat: fat, weight: weight})
+                .then(res => res.data)
+                .then(props.history.push('/breakfast'))
+                .catch(err => console.log(err))
+            }
+console.log(calories)
+   return (
+       <div className='popup-box'>
+           <div className='box'>
+               <label>
+    item name
+            <input name='foodName' value={foodName} onChange={(e) => setFoodName(e.target.value)} type='text' placeholder='item name'/>
+               </label>
+            <label>
+                calories
+            <input name='calories' value={calories} onChange={(e) => setCalories(e.target.value)} type='number' placeholder='calories'/>
+            </label>
+            <label>
+                protein
+            <input name='protein' value={protein} onChange={(e) => setProtein(e.target.value)} type='number' placeholder='protein'/>
+            </label>
+            <label>
+carbs
+            <input name='carbs' value={carbs} onChange={(e) => setCarbs(e.target.value)} type='number' placeholder='carbs'/>
+            </label>
+            <label>
+fat
+            <input name='fat' value={fat} onChange={(e) => setFat(e.target.value)} type='number' placeholder='fat'/>
+            </label>
+            <label>
+    grams
+            <input name='weight' value={weight} onChange={(e) => setWeight(e.target.value)} type='number' placeholder='weight in grams'/>
+            </label>
+            <button onClick={addFood}>Add</button>
+            {/* <span onClick={setIsOpen(false)}>X</span> */}
+           </div>
+       </div>
+   ) 
 }
-const mapStateToProps = reduxState => {
-    return {breakfastReducer: reduxState.breakfastReducer}
-}
-export default connect(mapStateToProps, {addBreakfast})(AddBreakfast)
+export default AddBreakfast

@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import{ Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getLunch } from '../redux/lunchReducer';
+import { getBreakfast } from '../redux/breakfastReducer';
+import { getDinner } from '../redux/dinnerReducer';
+import { getSnacks } from '../redux/snackReducer';
 import './Home.css'
 import axios from 'axios';
 const Home = (props) => {
     const [updatingCalories, setupdatingCalories] = useState(false)
     const [calorieBudget, setCalorieBudget] = useState([])
     const [calorieInput, setCalorieInput] = useState(calorieBudget)
-
-    // const changeCalories = () => {
-    //     setupdatingCalories(!updatingCalories)
-    // }
 
     const inputhandle = (e) => {
         setCalorieInput(e.target.value)
@@ -38,54 +37,69 @@ const Home = (props) => {
     const lunchCalories = props.lunchReducer.lunch.reduce((acc, cur) => {
             return (acc + cur.calories)
         }, 0)
+    const breakfastCalories = props.breakfastReducer.breakfast.reduce((acc, cur) => {
+        return (acc + cur.calories)
+    }, 0)
+    const dinnerCalories = props.dinnerReducer.dinner.reduce((acc, cur) => {
+        return (acc + cur.calories)
+    }, 0)
+    const snackCalories = props.snackReducer.snacks.reduce((acc, cur) => {
+        return (acc + cur.calories)
+    }, 0)
+console.log(props)
     console.log(`hello`, calorieInput)
     console.log(calorieBudget)
-    
-        // key={index}
                
-    // })
     // console.log(mappedCalorieBudget)
     let displayCalorieBudget = calorieBudget.map(el => el.calories)
     console.log(calorieBudget)
+    
+    // let caloriesLeft = calorieBudget[0].calories - lunchCalories
     return (
         <div className="home">
             <div id="calorie-info">
-                <div>
+                <section>
+                    <h3>Calorie Budget</h3>
+                    {updatingCalories === true ? 
+                    <input
+                    placeholder="set daily calorie budget"
+                    value={calorieInput}
+                    onChange={inputhandle}
+                    onKeyPress={updateCalories}
+                    type="number"
+                    name="updatingCalories"/> :
+                    <button onClick={() => setupdatingCalories(true)}>{displayCalorieBudget}</button>
+                    }
+                </section>
+                <section>
+                    <h3>Calories Consumed</h3>
+                    <h4>3200</h4>
+                </section>
+                <section>
 
-            <h3>Calorie Budget</h3>
-            {updatingCalories === true ? 
-            <input
-            placeholder="set daily calorie budget"
-            value={calorieInput}
-            onChange={inputhandle}
-            onKeyPress={updateCalories}
-            type="number"
-            name="updatingCalories"/> :
-            <button onClick={() => setupdatingCalories(true)}>{displayCalorieBudget}</button>
-        }
-        </div>
-            
-                <div>
-                <h3>Calories Consumed</h3>
-                <h3>Calories Left</h3>
-                {/* <h6>{calorieBudget - lunchCalories}</h6> */}
-                </div>
-        </div>
-            
-            <div id="meals">
-                {/* <ul> */}
-                <Link to='breakfast'><li>Breakfast</li></Link>
-                <Link to="lunch"><li>Lunch</li></Link>
-                <p>{lunchCalories}</p>
-                <Link to="dinner"><li>Dinner</li></Link>
-                <Link to="snacks"><li>Snacks</li></Link>
-                {/* </ul> */}
+                    <h3>Calories Left</h3>
+                    <h4>1000</h4>
+                </section>
             </div>
-
+            <div id="meals">
+                <ul>
+                    <Link to='breakfast'><li>Breakfast</li></Link>
+                    <p>{breakfastCalories}</p>
+                    <Link to="lunch"><li>Lunch</li></Link>
+                    <p>{lunchCalories}</p>
+                    <Link to="dinner"><li>Dinner</li></Link>
+                    <p>{dinnerCalories}</p>
+                    <Link to="snacks"><li>Snacks</li></Link>
+                    <p>{snackCalories}</p>
+                </ul>
+            </div>
         </div>
     )
 }
 const mapStateToProps = reduxState => {
-    return {lunchReducer: reduxState.lunchReducer}
+    return {lunchReducer: reduxState.lunchReducer,
+            breakfastReducer: reduxState.breakfastReducer,
+            dinnerReducer: reduxState.dinnerReducer,
+            snackReducer: reduxState.snackReducer}
 }
-export default connect(mapStateToProps, {getLunch})(Home);
+export default connect(mapStateToProps, {getLunch, getBreakfast, getDinner, getSnacks})(Home);

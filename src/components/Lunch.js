@@ -9,7 +9,7 @@ const Lunch = (props) => {
 
 useEffect(() => {
     props.getLunch()
-}, [])
+}, [lunchReducer.lunch])
 
     console.log('skerpppp', props)
     return (
@@ -29,7 +29,6 @@ useEffect(() => {
                         el={element}/>
                     )
                 })}
-
             </div>
             <h2>Calories</h2>
             <p>{props.lunchReducer.lunch.reduce((acc, cur) => {

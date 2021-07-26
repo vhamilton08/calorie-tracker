@@ -1,39 +1,84 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BreakfastSearch from './BreakfastSearch';
+import { connect } from 'react-redux';
+import breakfastReducer, { getBreakfast } from '../redux/breakfastReducer';
+import LunchList from './LunchList';
+import AddIcon from '@material-ui/icons/Add';
+import HomeIcon from '@material-ui/icons/Home';
+import './Breakfast.css'
 
-const Breakfast = () => {
+const Breakfast = (props) => {
     const [buttonPopup, setbuttonPopup] = useState(false)
     const [addButtonPopup, setaddButtonPopup] = useState(false)
 
     // const [foodList, setFoodlist] = useState('')
-    // const Search = () => {
-        // setIsSearching(!isSearching)
-    // }
-   
+
+   useEffect(() => {
+       props.getBreakfast()
+   }, [breakfastReducer.breakfast])
     return (
-            <div>
+            <div className='breakfast-page'>
                 <nav>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/"><HomeIcon fontSize='large'/></Link></li>
                     </ul>
-
                 </nav>
                 <div className="foodDetails">
                     <h1>Breakfast</h1>
-                    <p>eggs scrambled<br/>toast</p>
 
-                    <p>calories</p>
-                    <button className="addFoodBtn" onClick={() => setbuttonPopup(true)}>+</button>
+                    <div className='meal-totals'>
+                        <section>
+
+                    <h2>calories</h2>
+                    <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
+                        return (acc + cur.calories)
+                    }, 0)}</p>
+                    </section>
+                    <section>
+
+                <h2>protein</h2>
+                <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
+                    return (acc + cur.protein)
+                }, 0)}g</p>
+                </section>
+                <section>
+
+                <h2>carbs</h2>
+                <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
+                    return (acc + cur.carbs)
+                }, 0)}g</p>
+                </section>
+                <section>
+
+                <h2>fat</h2>
+                <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
+                    return (acc + cur.fat)
+                }, 0)}g</p>
+                </section>
                 </div>
-                <div className="add">
-                </div>
+                <div className='food-list'>
+
+                    {props.breakfastReducer.breakfast.map((element, index) => {
+                        return(
+                            <LunchList
+                            key={index}
+                            el={element}/>
+                            
+                            )})}
+                            </div>
+                    <button className="addFoodBtn" onClick={() => setbuttonPopup(true)}><AddIcon/></button>
+                {/* <div className="add"> */}
+                {/* </div> */}
                 <BreakfastSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}>
                     {/* <h3>hello</h3> */}
                 </BreakfastSearch>
                 {/* <AddFood trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/> */}
-
+            </div>
             </div>
     )   
 }
-export default Breakfast;
+const mapStateToProps = reduxState => {
+    return {breakfastReducer: reduxState.breakfastReducer}
+}
+export default connect(mapStateToProps, {getBreakfast})(Breakfast);

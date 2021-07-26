@@ -12,14 +12,31 @@
 }
 
 .popup-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
     position: relative;
     padding: 32px;
     width: 100vw;
+    /* height: 500px; */
     /* max-width: 740px; */
-    background-color: aqua;
+    /* background-color: green; */
+  background-color: #3dc253;
+
     /* display: flex; */
     /* flex-direction: column; */
 }
+.popup-inner input {
+    margin-top: 40px;
+    outline: none;
+    width: 500px;
+    text-align: center;
+    align-content: center;
+    height: 30px;
+    border : 2px solid black;
+    padding: 2px;
+} 
 .displayedFood {
     height: 95vh;
     /* width: 75vw; */
@@ -34,6 +51,11 @@
 }
 .displayedFood ul {
     list-style-type: none;
+    /* color: white; */
+}
+.displayedFood ul li {
+
+    /* color: white; */
 }
 .displayedFood ul li button {
     background: none;
@@ -41,11 +63,42 @@
     border: none;
     font-size: 34px;
     padding: 15px;
+    color: white;
 }
 .displayedFood ul li button:hover {
-    color: red;
+    color: black;
     transition: 1ms linear;
 }
 /* .dontDisplay {
     display: none;
 } */
+.closeBtn {
+    /* background-color: black; */
+    /* color: white; */
+    margin-left: 90%;
+    /* margin-top: -50px; */
+    margin-bottom: 50px;
+    /* padding: 3px; */
+    outline: none;
+    /* border: 1px solid black; */
+    border-radius: 15%;
+    /* display: flex; */
+    /* height: 20px; */
+  }
+  .custom-entry {
+      margin-top: 40px;
+      text-decoration: none;
+      /* color: rgb(243, 232, 243); */
+      color: black;
+      font-weight: bold;
+      padding-top: 200px;
+  }
+  .custom-entry:hover {
+      color: white;
+      transition: 1ms linear;
+  }
+  @media(max-width: 500px) {
+      .displayedFood {
+          font-size: 32px;
+      }
+  }

@@ -4,6 +4,7 @@
   box-sizing: border-box;
 
   font-family: 'Fira Sans', sans-serif;
+  text-decoration: none;
 }
 
 nav {
@@ -11,12 +12,13 @@ nav {
   justify-content: flex-start;
   align-items: center;
   /* height: 5vh; */
+  padding-top: 10px;
   text-decoration: none;
 }
 nav li a {
   text-decoration: none;
   color: black;
-  font-size: 30px;
+  /* font-size: 50px; */
   margin-left: 20px;
 }
 
@@ -26,7 +28,7 @@ nav li a {
   /* justify-content: center; */
   flex-direction: column;
   align-items: center;
-  height: 95vh;
+  /* height: 95vh; */
 }
 
 .add {
@@ -52,6 +54,7 @@ nav li a {
 }
 
 .addFoodBtn {
+  position:relative;
   background-color: black;
   color: white;
   min-width: 50px;
@@ -60,16 +63,40 @@ nav li a {
   font-size: 40px;
   border: 1px solid black;
   /* width: 300px; */
-  margin-top: 65vh;
-  margin-left: 80% ;
+  /* margin-top: 65vh; */
+  margin-left: 90%;
+  margin-top: 5%;
+  /* float: right; */
 }
-.closeBtn {
-  background-color: black;
-  color: white;
-  margin-left: 5px;
-  padding: 3px;
-  outline: none;
-  border: 1px solid black;
-  border-radius: 15%;
+/* .closeBtn {
+  /* background-color: black; */
+  /* color: white; */
+  /* margin-left: 10px; */
+  /* margin-top: -50px; */
+  /* padding: 3px; */
+  /* outline: none; */
+  /* border: 1px solid black; */
+  /* border-radius: 15%; */
   /* height: 20px; */
+/* } */ */
+.lunch-list {
+  /* display: flex; */
+  padding: 10px;
+}
+.lunch-list-data {
+  background-color: rgb(183, 189, 189);
+  box-shadow: 10px 7px 10px rgb(81, 201, 201);
+  text-transform: lowercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  /* margin: 2px; */
+  flex-direction: column;
+}
+
+@media(max-width: 700px) {
+  .addFoodBtn {
+    margin-left: 0%;
+  }
 }

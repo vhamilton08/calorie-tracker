@@ -1,0 +1,38 @@
+.breakfast-page {
+    height: 100vh;
+    /* background-color: blue; */
+    /* display: flex; */
+    /* flex-direction: row; */
+
+}
+.food-list {
+    width: 80vw;
+    /* height: 500px; */
+    /* padding: 5px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* background-color: brown; */
+    background-color: rgb(223, 200, 200);
+    box-shadow: 10px 7px 10px rgb(109, 112, 112);
+    /* border-radius: 25%; */
+
+    margin-top: 100px;
+}
+.meal-totals {
+    width: 80vw;
+    /* height: 500px; */
+    background-color: rgb(223, 200, 200);
+    /* border: 1px solid black; */
+    box-shadow: 10px 7px 10px rgb(109, 112, 112);
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+@media(max-width: 550px) {
+    .breakfast-page {
+        height: 1150px;
+    }
+}

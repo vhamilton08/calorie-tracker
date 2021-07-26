@@ -22,10 +22,17 @@ app.put('/api/dailybudget', ctrl.updateBudget)
 // breakfast endpoints
 app.get('/api/breakfast', ctrl.getBreakfast)
 app.post('/api/breakfast', ctrl.addToBreakfast)
+app.delete('/api/breakfast/:breakfast_id', ctrl.deleteFromBreakfast)
 // app.delete('/api/breakfast', ctrl.deleteFromBreakfast)
 
 //lunch endpoints
 app.get('/api/lunch', ctrl.getLunch)
+
+//dinner endpoints
+app.get('/api/dinner', ctrl.getDinner)
+
+//snacks endpoints
+app.get('/api/snacks', ctrl.getSnacks)
 
 
 app.listen(SERVER_PORT, () => console.log(`<---Server Online--->`))
