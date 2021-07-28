@@ -16,7 +16,7 @@ const Breakfast = (props) => {
 
    useEffect(() => {
        props.getBreakfast()
-   }, [breakfastReducer.breakfast])
+   }, /*[breakfastReducer.breakfast]*/)
     return (
             <div className='breakfast-page'>
                 <nav>
@@ -26,39 +26,33 @@ const Breakfast = (props) => {
                 </nav>
                 <div className="foodDetails">
                     <h1>Breakfast</h1>
-
-                    <div className='meal-totals'>
-                        <section>
-
-                    <h2>calories</h2>
-                    <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
-                        return (acc + cur.calories)
-                    }, 0)}</p>
+                <div className='meal-totals'>
+                    <section>
+                        <h2>calories</h2>
+                        <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
+                            return (acc + cur.calories)
+                        }, 0)}</p>
                     </section>
                     <section>
-
-                <h2>protein</h2>
-                <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
-                    return (acc + cur.protein)
-                }, 0)}g</p>
-                </section>
-                <section>
-
-                <h2>carbs</h2>
-                <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
-                    return (acc + cur.carbs)
-                }, 0)}g</p>
-                </section>
-                <section>
-
-                <h2>fat</h2>
-                <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
-                    return (acc + cur.fat)
-                }, 0)}g</p>
-                </section>
+                        <h2>protein</h2>
+                        <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
+                            return (acc + cur.protein)
+                        }, 0)}g</p>
+                    </section>
+                    <section>
+                        <h2>carbs</h2>
+                        <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
+                            return (acc + cur.carbs)
+                        }, 0)}g</p>
+                    </section>
+                    <section>
+                        <h2>fat</h2>
+                        <p>{props.breakfastReducer.breakfast.reduce((acc, cur) => {
+                            return (acc + cur.fat)
+                        }, 0)}g</p>
+                    </section>
                 </div>
                 <div className='food-list'>
-
                     {props.breakfastReducer.breakfast.map((element, index) => {
                         return(
                             <LunchList
@@ -68,8 +62,6 @@ const Breakfast = (props) => {
                             )})}
                             </div>
                     <button className="addFoodBtn" onClick={() => setbuttonPopup(true)}><AddIcon/></button>
-                {/* <div className="add"> */}
-                {/* </div> */}
                 <BreakfastSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}>
                     {/* <h3>hello</h3> */}
                 </BreakfastSearch>

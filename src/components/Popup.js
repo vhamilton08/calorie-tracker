@@ -58,26 +58,21 @@ const Popup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
                 .then(setTrigger(false))
                 .catch(err => console.log(err))
             }
-            // console.log('skerp', breakfast)
+            // console.log(breakfast)
     // console.log(cals, carbs, fat, protein)
     // console.log(amount)
     console.log(clickedFood.length, 'length')
     return (
-        <div className="popup-box">
-            <div className="box">
-                {/* <span className="close-icon" onClick={handleClose}>x</span> */}
+        <div className="popup-box2">
+            <div className="box2">
                 <h3>{clickedFood.description}</h3>
-                {/* {newArr.map(item => <p>{item.value}</p>)} */}
                 <input type='number' name='amount' value={amount} onChange={handleChange} placeholder='enter weight in grams'/>
-                {/* <button onClick={configureRatios}>click me</button> */}
-                <button className='check-icon' onClick={submitFood}><CheckIcon/></button>
-                <p>{cals} cals</p>
+                <CancelPresentationIcon className='close-icon2' fontSize='large' onClick={() => setClickedFood(0)}/>
+                <p style={{marginTop: '13px'}}>{cals} cals</p>
                 <p style={{color: 'green'}}> carbs {carbs}g</p>
-                <p style={{color: 'yellow'}}>fat {fat}g</p>
+                <p style={{color: 'orange'}}>fat {fat}g</p>
                 <p style={{color: 'purple'}}>protein {protein}g</p>
-                
-                <button onClick={() => setClickedFood(0)}><CancelPresentationIcon/></button>
-                
+                <button className='check-icon' onClick={submitFood}><CheckIcon/></button>
             </div>
         </div>
     )

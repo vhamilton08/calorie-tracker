@@ -36,7 +36,6 @@ const BreakfastSearch = (props) => {
             <div className="popup-inner">
                 <h2>SEARCH FOR A FOOD</h2>
                 <CancelPresentationIcon className='closeBtn' fontSize='large' onClick={() => props.setTrigger(false)}/>
-                <Link to="/breakfastadd"><a className='custom-entry' style={{marginTop: '30px'}}>Create custom entry</a></Link>
                 {props.children}
                 <input
                     name="breakfastSearch"
@@ -44,6 +43,9 @@ const BreakfastSearch = (props) => {
                     type="text"
                     placeholder="Enter food name"/>
                 {/* <button className="closeBtn" onClick={() => props.setTrigger(false)}><CancelPresentationIcon/></button> */}
+                <div className='custom-entry-div'>
+                    <Link to="/breakfastadd"><a className='custom-entry'><h6>Create custom entry</h6></a></Link>
+                </div>
             <div className="displayedFood">
                 <ul>
                     {food.map(foods => <li><button onClick={() => setClickedFood(foods)}>{foods.description}</button></li>)}
