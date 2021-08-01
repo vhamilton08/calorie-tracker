@@ -34,12 +34,30 @@ module.exports = {
         const deleteFromBreakfast = await db.breakfast.delete_from_breakfast([breakfast_id])
         return res.status(200).send(deleteFromBreakfast)
     },
+    editBreakfast: async(req, res) => {
+        const {breakfast_id} = req.params
+        const db = req.app.get('db')
+        const edit = await db.breakfast.edit_breakfast([breakfast_id])
+        return res.status(200).send(edit)
+    },
 
     //lunch functions
     getLunch: async (req, res) => {
         const db = req.app.get('db')
         const lunch = await db.lunch.get_lunch()
         res.status(200).send(lunch)
+    },
+    addToLunch: async (req, res) => {
+        const db = req.app.get('db')
+        let {name, calories, protein, carbs, fat, weight} = req.body
+        let addLunch = await db.lunch.add_lunch([name, calories, protein, carbs, fat, weight])
+        return res.status(200).send(addLunch)
+    },
+    deleteFromLunch: async (req, res) => {
+        const {lunch_id} = req.params
+        const db = req.app.get('db')
+        const deleteFromLunch = await db.lunch.delete_from_lunch([lunch_id])
+        return res.status(200).send(deleteFromLunch)
     },
 
     //dinner functions
@@ -48,12 +66,36 @@ module.exports = {
         const dinner = await db.dinner.get_dinner()
         res.status(200).send(dinner)
     },
+    addToDinner: async (req, res) => {
+        const db = req.app.get('db')
+        let {name, calories, protein, carbs, fat, weight} = req.body
+        let addDinner = await db.dinner.add_dinner([name, calories, protein, carbs, fat, weight])
+        return res.status(200).send(addDinner)
+    },
+    deleteFromDinner: async (req, res) => {
+        const {dinner_id} = req.params
+        const db = req.app.get('db')
+        const deleteFromDinner = await db.dinner.delete_from_dinner([dinner_id])
+        return res.status(200).send(deleteFromDinner)
+    },
 
     //snacks functions
     getSnacks: async (req, res) => {
         const db = req.app.get('db')
         const snacks = await db.snacks.get_snacks()
         res.status(200).send(snacks)
+    },
+    addToSnacks: async (req, res) => {
+        const db = req.app.get('db')
+        let {name, calories, protein, carbs, fat, weight} = req.body
+        let addSnacks = await db.snacks.add_snacks([name, calories, protein, carbs, fat, weight])
+        return res.status(200).send(addSnacks)
+    },
+    deleteFromSnacks: async (req, res) => {
+        const {snacks_id} = req.params
+        const db = req.app.get('db')
+        const deleteFromSnacks = await db.snacks.delete_from_snacks([snacks_id])
+        return res.status(200).send(deleteFromSnacks)
     }
 
 }

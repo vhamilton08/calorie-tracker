@@ -9,7 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     /* flex: 1 1 80px; */
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     /* background-color: brown; */
     background-color: rgb(223, 200, 200);
@@ -27,8 +27,8 @@
     padding: 10px;
 }
 
-@media(max-width: 550px) {
+/* @media(max-width: 550px) {
     .breakfast-page {
         height: 1900px;
     }
-}
+} */

@@ -28,7 +28,7 @@ nav li a {
   /* justify-content: center; */
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  /* height: 100%; */
 }
 
 .add {
@@ -80,7 +80,7 @@ nav li a {
 
 }
 .lunch-list-data {
-  height: 200px;
+  /* height: 200px; */
   box-shadow: 8px 7px 15px ;
   /* border: 1px solid black; */
   background-color: #eff5f2;

@@ -16,6 +16,7 @@ const AddBreakfast = (props) => {
               axios.post('api/breakfast', {name:foodName, calories: calories, protein:protein, carbs: carbs, fat: fat, weight: weight})
                 .then(res => res.data)
                 .then(props.history.push('/breakfast'))
+                .then(window.location.reload(false))
                 .catch(err => console.log(err))
             }
 

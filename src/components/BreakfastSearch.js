@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './BreakfastSearch.css'
 import axios from 'axios'
 import Popup from './Popup'
@@ -27,6 +27,12 @@ const BreakfastSearch = (props) => {
             // console.log(food)
         // }, 2000)
     }
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    })
     
     // console.log(mappedFoods)
     console.log(clickedFood, 'dfgdffbdfb')
