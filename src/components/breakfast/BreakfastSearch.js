@@ -50,7 +50,7 @@ const BreakfastSearch = (props) => {
                     placeholder="Enter food name"/>
                 {/* <button className="closeBtn" onClick={() => props.setTrigger(false)}><CancelPresentationIcon/></button> */}
                 <div className='custom-entry-div'>
-                    <Link to="/breakfastadd"><a className='custom-entry'><h6>Create custom entry</h6></a></Link>
+                    <Link to="/breakfastadd"><h6 className='custom-entry'>Create custom entry</h6></Link>
                 </div>
             <div className="displayedFood">
                 <ul>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BreakfastSearch from './BreakfastSearch';
 import { connect } from 'react-redux';
-import breakfastReducer, { getBreakfast } from '../../redux/breakfastReducer';
+import { getBreakfast } from '../../redux/breakfastReducer';
 import BreakfastList from './BreakfastList';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
@@ -17,7 +17,7 @@ const Breakfast = (props) => {
 
    useEffect(() => {
        props.getBreakfast()
-   },[])
+   },[/*props.breakfastReducer.breakfast*/])
    console.log(props.breakfastReducer.breakfast, 'lllll')
     return (
             <div className='breakfast-page'>

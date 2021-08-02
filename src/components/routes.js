@@ -6,7 +6,9 @@ import Lunch from './lunch/Lunch'
 import Dinner from './dinner/Dinner'
 import Snacks from './snacks/Snacks'
 import AddBreakfast from './breakfast/AddBreakfast'
-// import EditBreakfast from './EditBreakfast'
+import AddLunch from  './lunch/AddLunch'
+import AddDinner from './dinner/AddDinner'
+import AddSnacks from './snacks/AddSnacks'
 
 export default (
     <Switch>
@@ -16,5 +18,8 @@ export default (
         <Route path='/dinner' component={Dinner}/>
         <Route path='/snacks' component={Snacks}/>
         <Route path='/breakfastadd' component={AddBreakfast}/>
+        <Route path='/lunchadd' component={AddLunch}/>
+        <Route path='/dinneradd' component={AddDinner}/>
+        <Route path='/snacksadd' component={AddSnacks}/>
     </Switch>
 )

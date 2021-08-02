@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import DinnerSearch from './DinnerSearch';
 import { connect} from 'react-redux';
-import dinnerReducer, { getDinner } from '../../redux/dinnerReducer';
+import { getDinner } from '../../redux/dinnerReducer';
 import DinnerList from './DinnerList';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
@@ -17,7 +17,7 @@ const Dinner = (props) => {
 
 useEffect(() => {
     props.getDinner()
-}, [dinnerReducer.dinner])
+}, [])
 
     console.log('skerpppp', props)
     return (

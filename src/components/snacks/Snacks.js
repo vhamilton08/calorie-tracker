@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import SnacksSearch from './SnacksSearch';
 import { connect} from 'react-redux';
-import snackReducer, { getSnacks } from '../../redux/snackReducer';
+import { getSnacks } from '../../redux/snackReducer';
 import SnackList from './SnackList';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
@@ -17,7 +17,7 @@ const Snacks = (props) => {
 
 useEffect(() => {
     props.getSnacks()
-}, [snackReducer.snacks])
+},[])
 
     console.log('skerpppp', props)
     return (

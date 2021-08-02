@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import axios from 'axios'
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Link } from 'react-router-dom'
 
 const SnackList = (props) => {
     // const [clickedId, setClickedId] = useState([])

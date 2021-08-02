@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LunchSearch from './LunchSearch';
 import { connect} from 'react-redux';
-import lunchReducer, { getLunch } from '../../redux/lunchReducer';
+import { getLunch } from '../../redux/lunchReducer';
 import LunchList from './LunchList';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
@@ -16,7 +16,7 @@ const Lunch = (props) => {
 
 useEffect(() => {
     props.getLunch()
-}, [lunchReducer.lunch])
+}, [])
 
     console.log('skerpppp', props)
     return (

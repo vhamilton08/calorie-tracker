@@ -11,7 +11,7 @@ const Home = (props) => {
     const [updatingCalories, setupdatingCalories] = useState(false)
     const [calorieBudget, setCalorieBudget] = useState([])
     const [calorieInput, setCalorieInput] = useState(calorieBudget)
-    // const [caloriesConsumed] = useState(lunchCalories + breakfastCalories + dinnerCalories + snackCalories)
+    const [caloriesLeft, setCaloriesLeft] = useState(0)
 
     const inputhandle = (e) => {
         setCalorieInput(e.target.value)
@@ -37,7 +37,8 @@ const Home = (props) => {
         props.getDinner()
         props.getSnacks()
         getTotalCals()
-    }, updateCalories)
+        // skerppp()
+    }, [])
     const lunchCalories = props.lunchReducer.lunch.reduce((acc, cur) => {
             return (acc + cur.calories)
         }, 0)
@@ -57,9 +58,12 @@ console.log(props)
     let displayCalorieBudget = calorieBudget.map(el => el.calories)
     console.log(calorieBudget)
     
-    let stringCalorieBudget= JSON.stringify(calorieBudget[0].calories)
-    let numb = Math.round(stringCalorieBudget)
-    console.log(numb)
+    // const skerppp = () => {
+    //     let stringCalorieBudget= JSON.stringify(calorieBudget[0].calories)
+    //     let numb = Math.round(stringCalorieBudget)
+    //     setCaloriesLeft(numb)
+    // }
+    // console.log(numb)
     return (
         <div className="home">
             <div id="calorie-info">
@@ -83,7 +87,7 @@ console.log(props)
                 <section>
 
                     <h3>Calories Left</h3>
-                    <h4>{numb - caloriesConsumed}</h4>
+                    {/* <h4>{caloriesLeft - caloriesConsumed}</h4> */}
                 </section>
             </div>
             <div id="meals">

@@ -3,10 +3,9 @@ import React, {useState} from 'react'
 import CheckIcon from '@material-ui/icons/Check';
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import '../Popup.css'
-import { useLocation } from 'react-router-dom';
 
 const SnacksPopup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
-    const[foodName, setFoodName] = useState(clickedFood.description)
+    const[foodName] = useState(clickedFood.description)
     const [amount, setAmount] = useState('')
     const [cals, setCals] = useState('')
     const [protein, setProtein] = useState(0)

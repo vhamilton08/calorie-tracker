@@ -6,7 +6,7 @@ import '../Popup.css'
 import { useLocation } from 'react-router-dom';
 
 const Popup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
-    const[foodName, setFoodName] = useState(clickedFood.description)
+    const[foodName] = useState(clickedFood.description)
     const [amount, setAmount] = useState('')
     const [cals, setCals] = useState('')
     const [protein, setProtein] = useState(0)
@@ -52,14 +52,12 @@ const Popup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
 
             const location = useLocation()
             const submitFood = () => {
-                if(location.pathname='/breakfast') {
                 axios.post('/api/breakfast', {name: foodName, calories: cals, protein: protein, carbs: carbs, fat: fat, weight: amount})
                 .then(res => res.data)
                 .then(setClickedFood(0))
                 .then(setTrigger(false))
                 .then(window.location.reload(false))
                 .catch(err => console.log(err))
-                } 
             }
             // console.log(breakfast)
     // console.log(cals, carbs, fat, protein)
