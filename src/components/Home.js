@@ -11,6 +11,7 @@ const Home = (props) => {
     const [updatingCalories, setupdatingCalories] = useState(false)
     const [calorieBudget, setCalorieBudget] = useState([])
     const [calorieInput, setCalorieInput] = useState(calorieBudget)
+    // const [caloriesConsumed] = useState(lunchCalories + breakfastCalories + dinnerCalories + snackCalories)
 
     const inputhandle = (e) => {
         setCalorieInput(e.target.value)
@@ -31,7 +32,10 @@ const Home = (props) => {
         .then(res => setCalorieBudget(res.data))
     }
     useEffect(() => {
-        // props.getLunch()
+        props.getLunch()
+        props.getBreakfast()
+        props.getDinner()
+        props.getSnacks()
         getTotalCals()
     }, updateCalories)
     const lunchCalories = props.lunchReducer.lunch.reduce((acc, cur) => {
@@ -46,15 +50,16 @@ const Home = (props) => {
     const snackCalories = props.snackReducer.snacks.reduce((acc, cur) => {
         return (acc + cur.calories)
     }, 0)
+    let caloriesConsumed = lunchCalories + breakfastCalories + dinnerCalories + snackCalories
 console.log(props)
-    console.log(`hello`, calorieInput)
-    console.log(calorieBudget)
+    console.log(calorieInput)
                
-    // console.log(mappedCalorieBudget)
     let displayCalorieBudget = calorieBudget.map(el => el.calories)
     console.log(calorieBudget)
     
-    // let caloriesLeft = calorieBudget[0].calories - lunchCalories
+    let stringCalorieBudget= JSON.stringify(calorieBudget[0].calories)
+    let numb = Math.round(stringCalorieBudget)
+    console.log(numb)
     return (
         <div className="home">
             <div id="calorie-info">
@@ -73,12 +78,12 @@ console.log(props)
                 </section>
                 <section>
                     <h3>Calories Consumed</h3>
-                    <h4>3200</h4>
+                    <h4>{caloriesConsumed}</h4>
                 </section>
                 <section>
 
                     <h3>Calories Left</h3>
-                    <h4>1000</h4>
+                    <h4>{numb - caloriesConsumed}</h4>
                 </section>
             </div>
             <div id="meals">

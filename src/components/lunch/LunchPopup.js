@@ -2,10 +2,10 @@ import axios from 'axios'
 import React, {useState} from 'react'
 import CheckIcon from '@material-ui/icons/Check';
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
-import './Popup.css'
+import '../Popup.css'
 import { useLocation } from 'react-router-dom';
 
-const Popup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
+const LunchPopup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
     const[foodName, setFoodName] = useState(clickedFood.description)
     const [amount, setAmount] = useState('')
     const [cals, setCals] = useState('')
@@ -50,16 +50,15 @@ const Popup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
                 }
             }
 
-            const location = useLocation()
+            // const location = useLocation()
             const submitFood = () => {
-                if(location.pathname='/breakfast') {
-                axios.post('/api/breakfast', {name: foodName, calories: cals, protein: protein, carbs: carbs, fat: fat, weight: amount})
+                axios.post('/api/lunch', {name: foodName, calories: cals, protein: protein, carbs: carbs, fat: fat, weight: amount})
                 .then(res => res.data)
                 .then(setClickedFood(0))
                 .then(setTrigger(false))
                 .then(window.location.reload(false))
                 .catch(err => console.log(err))
-                } 
+                // } 
             }
             // console.log(breakfast)
     // console.log(cals, carbs, fat, protein)
@@ -81,4 +80,4 @@ const Popup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
         </div>
     )
 }
-export default Popup
+export default LunchPopup

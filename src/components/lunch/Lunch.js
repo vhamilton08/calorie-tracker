@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import BreakfastSearch from './BreakfastSearch';
+import LunchSearch from './LunchSearch';
 import { connect} from 'react-redux';
-import lunchReducer, { getLunch } from '../redux/lunchReducer';
+import lunchReducer, { getLunch } from '../../redux/lunchReducer';
 import LunchList from './LunchList';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
+import '../Breakfast.css'
 
 
 const Lunch = (props) => {
@@ -67,7 +68,7 @@ useEffect(() => {
                     })}
             </div>
             <button className='addFoodBtn' onClick={() => setbuttonPopup(true)}><AddIcon/></button>
-            <BreakfastSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
+            <LunchSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
             </div>
         </div>
     )

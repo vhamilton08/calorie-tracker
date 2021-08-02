@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import './BreakfastSearch.css'
+import '../BreakfastSearch.css'
 import axios from 'axios'
-import Popup from './Popup'
+import SnacksPopup from './SnacksPopup'
 import { Link } from 'react-router-dom'
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 
-const BreakfastSearch = (props) => {
+const SnacksSearch = (props) => {
     const [food, setFood] = useState([])
     const [clickedFood, setClickedFood] = useState([])
     const [searchFood, setSearchFood] = useState('')
@@ -44,7 +44,7 @@ const BreakfastSearch = (props) => {
                 <CancelPresentationIcon className='closeBtn' fontSize='large' onClick={() => props.setTrigger(false)}/>
                 {props.children}
                 <input
-                    name="breakfastSearch"
+                    name="snacksSearch"
                     onChange={getFood}
                     type="text"
                     placeholder="Enter food name"/>
@@ -60,7 +60,7 @@ const BreakfastSearch = (props) => {
             </div>
             <div className="dontDisplay">
                 {Object.keys(clickedFood).length >= 1 ? 
-                <Popup  clickedFood={clickedFood}
+                <SnacksPopup  clickedFood={clickedFood}
                         setClickedFood={setClickedFood}
                         setTrigger={props.setTrigger}/> : ''
                 }
@@ -70,4 +70,4 @@ const BreakfastSearch = (props) => {
     ) : ''
     )
 }
-export default BreakfastSearch
+export default SnacksSearch

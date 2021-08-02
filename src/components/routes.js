@@ -1,12 +1,12 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
-import Breakfast from './Breakfast'
-import Lunch from './Lunch'
-import Dinner from './Dinner'
-import Snacks from './Snacks'
-import AddBreakfast from './AddBreakfast'
-import EditBreakfast from './EditBreakfast'
+import Breakfast from './breakfast/Breakfast'
+import Lunch from './lunch/Lunch'
+import Dinner from './dinner/Dinner'
+import Snacks from './snacks/Snacks'
+import AddBreakfast from './breakfast/AddBreakfast'
+// import EditBreakfast from './EditBreakfast'
 
 export default (
     <Switch>
@@ -16,8 +16,5 @@ export default (
         <Route path='/dinner' component={Dinner}/>
         <Route path='/snacks' component={Snacks}/>
         <Route path='/breakfastadd' component={AddBreakfast}/>
-        <Route path='/edit' component={EditBreakfast}/>
-
     </Switch>
-
 )

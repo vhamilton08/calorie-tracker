@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BreakfastSearch from './BreakfastSearch';
 import { connect } from 'react-redux';
-import breakfastReducer, { getBreakfast } from '../redux/breakfastReducer';
-import LunchList from './LunchList';
+import breakfastReducer, { getBreakfast } from '../../redux/breakfastReducer';
+import BreakfastList from './BreakfastList';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
-import './Breakfast.css'
+import '../Breakfast.css'
 
 const Breakfast = (props) => {
     const [buttonPopup, setbuttonPopup] = useState(false)
@@ -57,7 +57,7 @@ const Breakfast = (props) => {
                 <div className='food-list'>
                     {props.breakfastReducer.breakfast.map((element, index) => {
                         return(
-                            <LunchList
+                            <BreakfastList
                             key={index}
                             el={element}/>
                             

@@ -26,7 +26,7 @@ export default function snackReducer(state = initialState, action) {
             if(payload) {
                 return {...state, snacks: payload}
             } else return state
-        case GET_SNACKS + '_PENDING':
+        case GET_SNACKS + '_REJECTED':
             return state
         default:
             return state
