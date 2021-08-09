@@ -1,38 +1,33 @@
 .popup-box {
     position: fixed;
-    /* background-color: red; */
-  background-color: #3dc253;
-
+    background-color: #3dc253;
     width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
-    /* display: flex; */
 }
+
 .box {
-    /* position: relative; */
     width: 70%;
     margin: 0 auto;
     min-height: 50vh;
     max-height: 70vh;
     margin-top: calc(100vh - 85vh - 20px);
-    /* background: rgb(102, 55, 55); */
     background-color: #eff5f2;
     border-radius: 4px;
     padding: 20px;
-    /* border: 1px solid #999; */
     border: 1px solid black;
     box-shadow: 8px 7px 15px ;
-    /* overflow: auto; */
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
   }
+
   .box input {
       margin-left: 5px;
   }
+
   label {
       display: inline;
       width: 310px;

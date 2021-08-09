@@ -45,11 +45,9 @@ const DinnerPopup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) =
                     setCarbs(Math.round(y * newArr[1].value))
                     setFat(Math.round(y * newArr[2].value))
                     setProtein(Math.round(y * newArr[3].value))
-                    // setCals(z)
                 }
             }
 
-            // const location = useLocation()
             const submitFood = () => {
                 axios.post('/api/dinner', {name: foodName, calories: cals, protein: protein, carbs: carbs, fat: fat, weight: amount})
                 .then(res => res.data)

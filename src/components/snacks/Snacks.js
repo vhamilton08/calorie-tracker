@@ -19,7 +19,7 @@ useEffect(() => {
     props.getSnacks()
 },[])
 
-    console.log('skerpppp', props)
+    console.log(props)
     return (
         <div className='breakfast-page'>
             <nav>
@@ -65,7 +65,9 @@ useEffect(() => {
                     })}
             </div>
             <button className='addFoodBtn' onClick={() => setbuttonPopup(true)}><AddIcon/></button>
-            <SnacksSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
+            <SnacksSearch 
+                trigger={buttonPopup} setTrigger={setbuttonPopup} 
+                trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
             </div>
         </div>
     )

@@ -11,9 +11,6 @@ import '../Breakfast.css'
 const Breakfast = (props) => {
     const [buttonPopup, setbuttonPopup] = useState(false)
     const [addButtonPopup, setaddButtonPopup] = useState(false)
-    // const [breakfast, setBreakfast] = useState(props.breakfastReducer.breakfast)
-
-    // const [foodList, setFoodlist] = useState('')
 
    useEffect(() => {
        props.getBreakfast()
@@ -60,14 +57,13 @@ const Breakfast = (props) => {
                             <BreakfastList
                             key={index}
                             el={element}/>
-                            
                             )})}
                 </div>
                     <button className="addFoodBtn" onClick={() => setbuttonPopup(true)}><AddIcon/></button>
-                <BreakfastSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}>
-                    {/* <h3>hello</h3> */}
-                </BreakfastSearch>
-                {/* <AddFood trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/> */}
+                <BreakfastSearch 
+                    trigger={buttonPopup} setTrigger={setbuttonPopup} 
+                    trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}
+                />
                 </div>
             </div>
     )   

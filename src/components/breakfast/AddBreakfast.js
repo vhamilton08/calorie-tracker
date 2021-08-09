@@ -20,13 +20,13 @@ const AddBreakfast = (props) => {
                 .catch(err => console.log(err))
             }
 
-            const onc = () => {
+            const cancelAddFood = () => {
                 props.history.goBack()
             }
 console.log(calories)
    return (
        <div className='popup-box'>
-           <h1 style={{position:'absolute', top:'30px', left:'50%'}}><ArrowBackIcon fontSize='large' onClick={onc}/></h1>
+           <h1 style={{position:'absolute', top:'30px', left:'50%'}}><ArrowBackIcon fontSize='large' onClick={cancelAddFood}/></h1>
            <div className='box'>
                <label>
                     item name

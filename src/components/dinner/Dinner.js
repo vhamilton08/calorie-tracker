@@ -65,7 +65,9 @@ useEffect(() => {
                     })}
             </div>
             <button className='addFoodBtn' onClick={() => setbuttonPopup(true)}><AddIcon/></button>
-            <DinnerSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
+            <DinnerSearch 
+                trigger={buttonPopup} setTrigger={setbuttonPopup} 
+                trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
             </div>
         </div>
     )

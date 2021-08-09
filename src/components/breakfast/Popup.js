@@ -46,7 +46,6 @@ const Popup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
                     setCarbs(Math.round(y * newArr[1].value))
                     setFat(Math.round(y * newArr[2].value))
                     setProtein(Math.round(y * newArr[3].value))
-                    // setCals(z)
                 }
             }
 

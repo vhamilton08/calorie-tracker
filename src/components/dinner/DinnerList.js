@@ -14,7 +14,7 @@ const DinnerList = (props) => {
         <div className="lunch-list">
             <div className='lunch-list-data' style={{width: '200px', height: '250px', margin:'10px'}}>
                 <DeleteIcon onClick={deleteFoodItem} style={{marginLeft: '85%', color: 'black', cursor: 'pointer'}}/>
-                <h2 style={{marginTop: '-1%', padding:'4px'}}>{name}</h2>
+                <h2 style={{marginTop: '-1%', padding:'4px', fontSize: '18px'}}>{name}</h2>
                 <p style={{padding: '2px', fontStyle: 'italic'}}>{weight}grams</p>
                 <p style={{padding: '2px'}}>{calories} cals</p>
                 <p style={{padding: '2px', color: 'purple'}}>protein {protein}g</p>

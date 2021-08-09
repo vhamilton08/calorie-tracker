@@ -57,7 +57,6 @@ useEffect(() => {
                 }, 0)}g</p>
                 </section>
                 </div>
-                {/* <h2>{props.lunchReducer.lunch.map(items => <li>{items.name}</li>)}</h2> */}
                 <div className='food-list'>
                 {props.lunchReducer.lunch.map((element, index) => {
                     return(
@@ -68,7 +67,9 @@ useEffect(() => {
                     })}
             </div>
             <button className='addFoodBtn' onClick={() => setbuttonPopup(true)}><AddIcon/></button>
-            <LunchSearch trigger={buttonPopup} setTrigger={setbuttonPopup} trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
+            <LunchSearch 
+            trigger={buttonPopup} setTrigger={setbuttonPopup} 
+            trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/>
             </div>
         </div>
     )

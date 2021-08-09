@@ -59,3 +59,17 @@ input::-webkit-inner-spin-button {
 .box2 input {
   width: 150px;
 }
+.configure-btn {
+  margin-left: 10px;
+  border-radius: 5%;
+  border: 1px solid black;
+  padding: 4px;
+  background-color: black;
+  color: white;
+}
+.configure-btn:hover {
+  transition: .6s;
+  border: 2px solid black;
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
+}

@@ -19,13 +19,11 @@ const BreakfastSearch = (props) => {
 
     const getFood = (e) => {
             setSearchFood(e.target.value)
-        // setTimeout(()=> {
 
              axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${params.api_key}&query=${params.query}&pageSize=${params.pageSize}&dataType=${params.dataType}`)
             .then(res => setFood(res.data.foods))
             .catch(err => console.log(err))
             // console.log(food)
-        // }, 2000)
     }
     useEffect(() => {
         window.scrollTo({
@@ -56,7 +54,6 @@ const BreakfastSearch = (props) => {
                 <ul>
                     {food.map(foods => <li><button onClick={() => setClickedFood(foods)}>{foods.description}</button></li>)}
                 </ul>
-            {/* <AddFood trigger2={addButtonPopup} setTrigger2={setaddButtonPopup}/> */}
             </div>
             <div className="dontDisplay">
                 {Object.keys(clickedFood).length >= 1 ? 
