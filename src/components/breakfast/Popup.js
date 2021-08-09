@@ -67,7 +67,7 @@ const Popup = ({ handleClose, setClickedFood, clickedFood, setTrigger }) => {
             <div className="box2">
                 <h3>{clickedFood.description}</h3>
                 <input type='number' name='amount' value={amount} onChange={handleChange} placeholder='enter weight in grams'/>
-                <button onClick={configureRatios}>sker</button>
+                <button className='configure-btn' onClick={configureRatios}>Configure Macros</button>
                 <CancelPresentationIcon className='close-icon2' fontSize='large' onClick={() => setClickedFood(0)}/>
                 <p style={{marginTop: '13px'}}>{cals} cals</p>
                 <p style={{color: 'green'}}> carbs {carbs}g</p>

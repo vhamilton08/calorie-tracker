@@ -69,7 +69,5 @@ input::-webkit-inner-spin-button {
 }
 .configure-btn:hover {
   transition: .6s;
-  border: 2px solid black;
-  /* padding-top: 5px; */
-  /* padding-bottom: 5px; */
+  background-color: #3f4141;
 }
