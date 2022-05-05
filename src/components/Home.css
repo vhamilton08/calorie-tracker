@@ -1,6 +1,6 @@
 .home {
     display: grid;
-    grid-template: 100vh / 2fr 1fr;
+    grid-template: 100% / 2fr 1fr;
     align-items: center;
 }
 
@@ -44,7 +44,7 @@ section h4 {
 
 #meals ul li {
     padding-top: 90px;
-    margin: 20px;
+    /* margin: 10px; */
 }
 
 #meals a{
