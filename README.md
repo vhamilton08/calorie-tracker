@@ -1,3 +1,23 @@
+# Calorie Tracker
+
+## What this app does
+
+An app to log and track your meals to make sure you hit your calorie goals!
+
+### Technologies Used
+
+* React.js
+* CSS
+* axios
+* express
+* PostgreSQL
+* REST API
+* Node.js
+
+![calorie-tracker1](https://user-images.githubusercontent.com/67924236/172030232-866c090a-1d84-4237-b7d4-a4ba902e82bb.PNG)
+
+![calorie-tracker3](https://user-images.githubusercontent.com/67924236/172030248-763cdbc9-7ba5-49e1-88c0-1baa748e7e46.PNG)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
